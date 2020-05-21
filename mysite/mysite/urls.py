@@ -19,5 +19,6 @@ from django.urls import include, path
 app_name='admin'
 urlpatterns = [
     path('polls/', include('polls.urls')),
+    path('news/', include('news.urls')),
     path('admin/', admin.site.urls, name='index'),
 ]
