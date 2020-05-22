@@ -23,7 +23,8 @@ a#side_bottom{
     clear:both
 }
 div#content{
-    display:inline-block
+    width:100%;
+    background-color: white;
 }
 div#main{
     width: 100%;
