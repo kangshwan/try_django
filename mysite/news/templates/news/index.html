@@ -1,10 +1,10 @@
 
 {% extends "news/base.html" %}
 {% block content %}
-{% if latest_article_list %}
+{% if article_list %}
     <br>
     <ul>
-        <li><h1><a href="{% url 'news:article' %}", >기사 바로 보러가기</a></h1></li>
+        <li><h1><a href="{% url 'news:articles' %}", >기사 바로 보러가기</a></h1></li>
     </ul>
 {% else %}
     <h1><p>No article are available.</p></h1?

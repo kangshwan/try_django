@@ -1,12 +1,17 @@
 {% extends "news/base.html" %}
-
-{% if latest_article_list %}
-    <ul>
-        <li><h1><a href="{% url 'news:article' %}", >기사 바로 보러가기</a></h1></li>
-    </ul>
-    <ul>
-        <li><a href="{% url 'article:article_year' article.pub_date.year %}">{{ article.pub_date.year }}</a></li>
-    </ul>
+{% block content %}
+{% if article.objects != '[]' %}
+   
+    <h2>연도별로 기사 몰아보기</h2>
+    <div id='side_left'>
+    {% for article in year_list %}
+    {% ifchanged %}
+       <h2><li><a href="{% url 'news:article_year' article.pub_date.year %}">{{article.pub_date.year}}</a></li></h2>
+    {% endifchanged %}
+    {% endfor %}
+    </div>
 {% else %}
-    <p>No polls are available.</p>
+    <p>No articles are available.</p>
 {% endif %}
+
+{% endblock %}

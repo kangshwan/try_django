@@ -8,7 +8,7 @@ class Reporter(models.Model):
     counts = models.IntegerField(default=0)
    
     def how_many_article(self):
-        self.counts=len(Article.objects.filter(reporter=self.pk))
+        self.counts=len(Article.objects.filter(reporter =self.pk))
         return len(Article.objects.filter(reporter=self.pk))
 
     def __str__(self):
@@ -18,6 +18,7 @@ class Reporter(models.Model):
     class Meta:
         ordering =('full_name','counts')
 
+
 class Article(models.Model):
     pub_date = models.DateField()
     headline = models.CharField(max_length=200)
@@ -26,4 +27,7 @@ class Article(models.Model):
 
     def __str__(self):
         return self.headline
+    
+    def year_published(self):
+        return self.pub_date.strftime('%Y')
 

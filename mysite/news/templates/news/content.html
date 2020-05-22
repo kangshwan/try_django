@@ -1,0 +1,12 @@
+{% extends "news/base.html" %}
+{% block title %}{{article.headline}}{% endblock %}
+
+{% block content %}
+<h1><p>{{ article.headline }}</p></h1>
+<p>기사입력 {{ article.pub_date|date:"F j, Y" }}</p>
+<div style="overflow:auto; width:800px; height:400px;">
+<h3><p>{{article.content}}</p><h3>
+</div>
+<p>{{ article.reporter.full_name }} 기자 </p>
+<a href="{% url 'news:article_year' article.pub_date.year %}">돌아가기</a>
+{% endblock %}

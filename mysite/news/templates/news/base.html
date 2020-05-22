@@ -2,9 +2,19 @@
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'news/style.css'%}"
 </head>
 <body>
-    <img src="{% static "news/images/logo.gif" %}" alt="Logo">
-    {% block content %}{% endblock %}
+<table>
+    <tr>
+        <td>
+            <img src="{% static "news/images/logo.gif" %}" alt="Logo">
+        </td>
+        <td>
+            <h1 id="news_comp">뉴스 보고가</h1>
+        </td>
+    </tr>
+    </table>
+    {% block content %}{% block list %} {% endblock %}{% endblock %}
 </body>
 </html>
